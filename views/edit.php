@@ -77,15 +77,17 @@
                 <label for="jumlah_tagihan">Jumlah Tagihan:</label>
                 <input type="text" class="form-control" id="jumlah_tagihan" name="jumlah_tagihan" value="<?php echo $this->ticket->jumlah_tagihan; ?>" readonly>
             </div>
-            <button type="button" class="btn btn-primary" onclick="hitungTagihan()">Hitung</button>
+            <button type="button" id="hitungbtn" class="btn btn-primary" onclick="hitungTagihan()">Hitung</button>
             <button type="reset" class="btn btn-danger">Reset</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-success">Simpan</button>
+            <button type="submit" id="submitbtn" class="btn btn-success" disabled>Simpan</button>
 
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
+        let hitungbtn = document.getElementById('hitungbtn');
+        let submitbtn = document.getElementById('submitbtn');
+
         function hitungTagihan() {
             let layanan = document.querySelectorAll('input[id="layanan[]"]:checked');
             let totalLayanan = 0;
@@ -99,6 +101,7 @@
 
             document.getElementById('harga_paket').value = totalLayanan;
             document.getElementById('jumlah_tagihan').value = totalTagihan;
+            submitbtn.disabled = false;
         }
     </script>
 

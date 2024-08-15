@@ -75,7 +75,6 @@
                     echo "<td>" . $row['jumlah_tagihan'] . "</td>";
 
                     echo "<td>";
-                    echo "<a href='index.php?action=view&id=" . $row['id'] . "' class='btn btn-primary btn-sm'>View</a> ";
                     echo "<a href='index.php?action=update&id=" . $row['id'] . "' class='btn btn-warning btn-sm'>Edit</a> ";
                     echo "<a href='index.php?action=delete&id=" . $row['id'] . "' onclick=\"return confirm('Are you sure?')\" class='btn btn-danger btn-sm'>Delete</a>";
                     echo "</td>";
