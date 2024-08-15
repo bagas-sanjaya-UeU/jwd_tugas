@@ -38,7 +38,7 @@
         </div>
     </nav>
 
-    <div class="container mt-5">
+    <div class="container table-responsive mt-5">
         <h2>Data Peserta Paket</h2>
         <table class="table ">
             <thead>
