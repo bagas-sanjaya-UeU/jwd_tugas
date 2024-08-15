@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -31,6 +31,13 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item mt-2 ms-3">
+                        <!-- Bootstrap 5 switch -->
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="darkModeSwitch" checked>
+                            <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
+                        </div>
                     </li>
 
                 </ul>
@@ -88,6 +95,32 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const htmlElement = document.documentElement;
+            const switchElement = document.getElementById('darkModeSwitch');
+            const navbar = document.getElementById('navbar');
+
+            // Set the default theme to dark if no setting is found in local storage
+            const currentTheme = localStorage.getItem('bsTheme') || 'dark';
+            htmlElement.setAttribute('data-bs-theme', currentTheme);
+            switchElement.checked = currentTheme === 'dark';
+
+            switchElement.addEventListener('change', function() {
+                if (this.checked) {
+                    htmlElement.setAttribute('data-bs-theme', 'dark');
+                    localStorage.setItem('bsTheme', 'dark');
+                    navbar.classList.remove('bg-danger');
+                    navbar.classList.add('bg-primary');
+                } else {
+                    htmlElement.setAttribute('data-bs-theme', 'light');
+                    localStorage.setItem('bsTheme', 'light');
+                    navbar.classList.remove('bg-primary');
+                    navbar.classList.add('bg-danger');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
