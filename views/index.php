@@ -11,6 +11,54 @@
             height: 400px;
         }
 
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+
+
+
+
+        button[type="reset"] {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
         @media (max-width: 768px) {
             .carousel-custom {
                 height: 300px;
@@ -38,7 +86,7 @@
                         <a class="nav-link" href="#">Daftar Paket Wisata</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Modifikasi Pesanan</a>
+                        <a class="nav-link" href="index.php?action=modifikasi">Modifikasi Pesanan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Gallery</a>
@@ -150,24 +198,81 @@
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Form pemesanan paket wisata</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <form action="index.php?action=create" method="POST">
+                        <div class="form-group">
+                            <label for="nama">Nama Pemesan:</label>
+                            <input type="text" class="form-control" id="nama" name="nama" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="no_hp">Nomor HP/Telp:</label>
+                            <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tanggal_pesan">Tanggal Pesan:</label>
+                            <input type="date" class="form-control" id="tanggal_pesan" name="tanggal_pesanan" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="waktu_pelaksanaan">Waktu Pelaksanaan Perjalanan:</label>
+                            <input type="number" class="form-control" id="waktu_pelaksanaan" name="waktu_pelaksanaan" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="layanan">Pelayanan Paket Perjalanan:</label><br>
+                            <input type="checkbox" id="layanan[]" name="penginapan" value="1000000"> Penginapan (Rp 1.000.000)<br>
+                            <input type="checkbox" id="layanan[]" name="transportasi" value="1200000"> Transportasi (Rp 1.200.000)<br>
+                            <input type="checkbox" id="layanan[]" name="makanan" value="500000"> Servis/Makan (Rp 500.000)<br>
+                        </div>
+                        <div class="form-group">
+                            <label for="jumlah_peserta">Jumlah Peserta:</label>
+                            <input type="number" class="form-control" id="jumlah_peserta" name="jumlah_peserta" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="harga_paket">Harga Paket Perjalanan:</label>
+                            <input type="text" class="form-control" id="harga_paket" name="harga_paket" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="jumlah_tagihan">Jumlah Tagihan:</label>
+                            <input type="text" class="form-control" id="jumlah_tagihan" name="jumlah_tagihan" readonly>
+                        </div>
+
+
+
+
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="hitungTagihan()">Hitung</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-success">Simpan</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        function hitungTagihan() {
+            let layanan = document.querySelectorAll('input[id="layanan[]"]:checked');
+            let totalLayanan = 0;
+            layanan.forEach(function(item) {
+                totalLayanan += parseInt(item.value);
+            });
+
+            let waktuPelaksanaan = document.getElementById('waktu_pelaksanaan').value;
+            let jumlahPeserta = document.getElementById('jumlah_peserta').value;
+            let totalTagihan = totalLayanan * waktuPelaksanaan * jumlahPeserta;
+
+            document.getElementById('harga_paket').value = totalLayanan;
+            document.getElementById('jumlah_tagihan').value = totalTagihan;
+        }
+    </script>
 </body>
 
 </html>

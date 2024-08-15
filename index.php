@@ -1,6 +1,6 @@
 <?php
 require_once 'config/Database.php';
-require_once 'controllers/ProductController.php';
+require_once 'controllers/TicketController.php';
 
-$controller = new ProductController();
+$controller = new TicketController();
 $controller->handleRequest();
