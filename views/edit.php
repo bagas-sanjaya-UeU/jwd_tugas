@@ -85,6 +85,12 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
+        console.log(`
+        %cJangan ubah-ubah kode program ini ya, nanti error loh!
+        Biarlah kode program ini seperti semula
+        Dibuat dengan ❤️ oleh Charderra Sanjaya
+
+        `, 'color: #FFC300 ; font-size: 16px;');
         let hitungbtn = document.getElementById('hitungbtn');
         let submitbtn = document.getElementById('submitbtn');
 

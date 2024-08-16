@@ -21,7 +21,7 @@
                         <a class="nav-link active" aria-current="page" href="index.php">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Daftar Paket Wisata</a>
+                        <a class="nav-link" href="#paketWisata">Daftar Paket Wisata</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?action=modifikasi">Modifikasi Pesanan</a>
@@ -39,7 +39,9 @@
                             <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
                         </div>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?controller=auth&action=logout">LogOut</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -96,6 +98,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <script>
+        console.log(`
+        %cJangan ubah-ubah kode program ini ya, nanti error loh!
+        Biarlah kode program ini seperti semula
+        Dibuat dengan ❤️ oleh Charderra Sanjaya
+
+        `, 'color: #FFC300 ; font-size: 16px;');
         document.addEventListener('DOMContentLoaded', (event) => {
             const htmlElement = document.documentElement;
             const switchElement = document.getElementById('darkModeSwitch');

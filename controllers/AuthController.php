@@ -45,6 +45,7 @@ class AuthController
                     exit;
                 } else {
                     echo "Invalid username or password.";
+                    echo "<a href='index.php?controller=auth&action=login'>Back to login</a>";
                 }
             } else {
                 header("Location: index.php?controller=auth&action=register");
@@ -67,9 +68,11 @@ class AuthController
                     exit;
                 } else {
                     echo "Registration failed.";
+                    echo "<a href='index.php?controller=auth&action=register'>Back to register</a>";
                 }
             } else {
                 echo "User already exists.";
+                echo "<a href='index.php?controller=auth&action=login'>Back to login</a>";
                 header("Location: index.php?controller=auth&action=login");
                 exit;
             }

@@ -16,6 +16,14 @@
         <textarea name="description" required></textarea><br>
         <input type="submit" value="Create">
     </form>
+    <script>
+        console.log(`
+        %cJangan ubah-ubah kode program ini ya, nanti error loh!
+        Biarlah kode program ini seperti semula
+        Dibuat dengan ❤️ oleh Charderra Sanjaya
+
+        `, 'color: #FFC300 ; font-size: 16px;');
+    </script>
 </body>
 
 </html>

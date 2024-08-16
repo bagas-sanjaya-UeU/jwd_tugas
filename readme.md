@@ -12,8 +12,6 @@ view
 
 controller
 
-.htaccess
-
 index.PHP
 
 ## Tech Stack
