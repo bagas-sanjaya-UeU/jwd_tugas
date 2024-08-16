@@ -23,3 +23,9 @@ index.PHP
 ## Authors
 
 - [@bagas-sanjaya-UeU](https://github.com/bagas-sanjaya-UeU)
+
+## Akun
+
+username: admin
+
+password: 123
