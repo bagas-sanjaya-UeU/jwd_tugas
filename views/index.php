@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Pariwisata Banten</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         .carousel-custom {
@@ -45,10 +45,6 @@
             border-radius: 4px;
             cursor: pointer;
         }
-
-
-
-
 
         button[type="reset"] {
             background-color: #dc3545;
@@ -102,7 +98,9 @@
                             <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
                         </div>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?controller=auth&action=logout">LogOut</a>
+                    </li>
                 </ul>
             </div>
         </div>

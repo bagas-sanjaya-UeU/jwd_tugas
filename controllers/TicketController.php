@@ -1,16 +1,20 @@
 <?php
 require_once 'models/Ticket.php';
+require_once 'controllers/AuthController.php';
 
 class TicketController
 {
     private $db;
     private $ticket;
+    private $auth;
 
     public function __construct()
     {
         $database = new Database();
         $this->db = $database->getConnection();
         $this->ticket = new Ticket($this->db);
+        $this->auth = new AuthController();
+        $this->auth->checkAuth();
     }
 
     public function handleRequest()
