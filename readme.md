@@ -18,7 +18,7 @@ index.PHP
 
 **Client:** PHP, Javascript, Bootstrap
 
-**Server:** Nginx
+**Server:** Apache
 
 ## Authors
 
